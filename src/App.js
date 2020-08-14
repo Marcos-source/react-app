@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState, useEffect} from 'react';
+import { Route } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import axios from 'axios';
+
+import Visitas from './components/visitas.js';
+import Ruta from './components/rutas.js';
+import Inicio from './components/inicio.js';
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit BUENAS  and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    return (
+      <div class="bg bg-dark">
+      <BrowserRouter>
+        <Route exact path="/" children={<Inicio />} />
+        <Route exact path="/rutas" children={<Ruta />} />
+        <Route exact path="/visitas" children={<Visitas />} />
+      </BrowserRouter>
+      </div>
+    );
 }
 
 export default App;
